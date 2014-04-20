@@ -11,7 +11,6 @@ It is being developed with the following goals in mind:
     * the list of "stories", who is working on what, and the status can follow the codebase and all sync with any _master_ branch
 * clean document format
 
-
 # Plans
 
 * REPL-style interactive console for viewing/updating stories
@@ -25,6 +24,10 @@ It is being developed with the following goals in mind:
 * Vim integration
   * change a story's status, etc.
   * who knows?
+
+# Show that it works
+
+    ./bin/clit
 
 # Example Story File:
 
