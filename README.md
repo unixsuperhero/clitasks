@@ -1,7 +1,7 @@
 
 # CliTasks (clit)
 
-Clit is a *C*ommand-*L*ine *I*nterface *T*ask Manager for Projects
+Clit is a (C)ommand-(L)ine (I)nterface (T)ask Manager for Projects
 
 It is being developed with the following goals in mind:
 
