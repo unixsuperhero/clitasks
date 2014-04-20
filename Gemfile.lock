@@ -1,0 +1,16 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    minitest (5.3.3)
+    prettyprint (0.0.1)
+      thor
+    rake (10.3.1)
+    thor (0.19.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest
+  prettyprint
+  rake

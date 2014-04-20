@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require './lib/story'
+require './lib/runner'
+
+CliTasks::Runner.run
+
+pp stories
+
