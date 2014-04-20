@@ -5,6 +5,7 @@ Clit is a (C)ommand-(L)ine (I)nterface (T)ask Manager for Projects
 
 It is being developed with the following goals in mind:
 
+* allow developers to view and manage tasks without leaving their terminal
 * decentralized
     * similar to how local-copies of git repos float around
     * the list of "stories", who is working on what, and the status can follow the codebase and all sync with any _master_ branch
