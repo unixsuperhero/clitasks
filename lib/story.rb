@@ -2,13 +2,17 @@ require 'pp'
 
 module CliTasks
   class Story
-    attr_reader :status, :name, :description, :created_by, :assigned_to, :comments, :tags
+    attr_reader :status, :points, :name, :description, :created_by, :assigned_to, :comments, :tags
     def initialize(&block)
       instance_eval &block
     end
 
     def status(status)
       @status = status
+    end
+
+    def points(points)
+      @points = points
     end
 
     def name(name)

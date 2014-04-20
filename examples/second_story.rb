@@ -1,5 +1,6 @@
 story do
   status :started
+  points 6
   name 'This is the second story'
   description <<-DESCRIPTION
     Here is the second story.  Lorem ipsum, isn't this awesome?

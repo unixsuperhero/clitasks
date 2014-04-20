@@ -1,5 +1,6 @@
 story do
   status :new
+  points 2
   name 'This is the first story'
 
   description <<-DESCRIPTION
