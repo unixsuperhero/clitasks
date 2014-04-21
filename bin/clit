@@ -15,7 +15,11 @@ when 'finish'
 when 'tag'
 when 'comment'
 else
-  CliTasks::Runner.run ARGV[0] || 'examples/*'
+  if ARGV.any?
+    CliTasks::Runner.run *ARGV
+  else
+    CliTasks::Runner.run 'examples/*'
+  end
   puts
   puts sprintf(" %-8s | %-6s | %-40s | %-10s", :id, :points, :name, :status)
   puts sprintf(" %-8s | %6s | %-40s | %-10s", ?-*8, ?-*6, ?-*40, ?-*10)
