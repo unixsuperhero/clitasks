@@ -31,18 +31,22 @@ It is being developed with the following goals in mind:
 
 # Example Story File:
 
-    story do
-      status :new
+    story 'Change the Homepage title to say "Foo"' do
+      id 'ajsdfjsjs'
+      status queued  # new is a reserved word
+      created_by :unix_superhero
+      assigned_to :unix_superhero, 'Foo Bar', :someone_else
+      tags :test, 'tag_two', :three
 
-      name 'Change the Homepage title to say "Foo"'
       description <<-DESCRIPTION
         Lorem ipsum, and stuff...
+
+        A long description can go here.
+          
+        To Do:
+        * task one
+        * task two
       DESCRIPTION
-
-      created_by 'Unix Superhero'
-      assigned_to 'Unix Superhero', 'Foo Bar', :someone_else
-
-      tags :test, 'dummy story'
 
       comment 'Unix Superhero', <<-COMMENT
         Hai hai, sou desu ne?
