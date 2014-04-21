@@ -2,13 +2,31 @@ require 'pp'
 
 module CliTasks
   class Story
-    attr_reader :id, :status, :points, :name, :description, :created_by, :assigned_to, :comments, :tags
+    attr_accessor :file
+    attr_reader :id, :status, :points, :name, :description
     def initialize(builder)
       builder.instance_variables.each{|name| instance_variable_set name, builder.instance_variable_get(name) }
     end
 
     def id
       @id ||= String(name.hash).tr('0-9-', 'asdfghjklui').slice(0,8)
+    end
+
+    def tags
+      @tags ||= []
+    end
+
+    def comments
+      @comments ||= []
+    end
+
+    def created_by
+      @created_by ||= []
+      @created_by &&= Array(@created_by)
+    end
+
+    def assigned_to
+      @assigned_to ||= []
     end
 
     def self.build(name, &block)
@@ -69,7 +87,7 @@ module CliTasks
   end
 
   def stories
-    @stories ||= []
+    World.instance.stories
   end
 end
 

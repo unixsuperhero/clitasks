@@ -2,6 +2,7 @@
 
 require './lib/story'
 require './lib/runner'
+require './lib/link_builder'
 
 case ARGV[0] && ARGV[0].strip
 when 'create'
@@ -25,6 +26,8 @@ story %q(#{name}) do
 end
   STORY
 when 'start'
+when 'rebuild'
+  LinkBuilder.all
 when 'finish'
 when 'tag'
 when 'comment'
