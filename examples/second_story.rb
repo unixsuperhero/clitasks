@@ -1,7 +1,10 @@
-story do
-  status :started
+story 'This is the second story' do
+  id 2
+  status started
   points 6
-  name 'This is the second story'
+  created_by :josh
+  assigned_to :josh, :paul
+  tags 'hello', 'world'
   description <<-DESCRIPTION
     Here is the second story.  Lorem ipsum, isn't this awesome?
     Here is the second story.  Lorem ipsum, isn't this awesome?
@@ -10,9 +13,9 @@ story do
     Here is the second story.  Lorem ipsum, isn't this awesome?
   DESCRIPTION
 
-  created_by :josh
-  assigned_to :josh, :paul
-  tags 'hello', 'world'
+  comment :josh, <<-BODY.gsub(/^\s\s*/, '')
+    this is the first comment
+  BODY
 
   comment :josh, <<-BODY.gsub(/^\s\s*/, '')
     this is another comment

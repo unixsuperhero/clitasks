@@ -1,7 +1,7 @@
-story do
-  status :new
+story 'name goes here' do
+  id 1
+  status queued
   points 2
-  name 'This is the first story'
 
   description <<-DESCRIPTION
     The description for the first story goes here.
