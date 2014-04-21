@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'pathname'
 require './lib/runner'
 require './lib/world'
 
@@ -69,9 +70,8 @@ class LinkBuilder
   end
 
   def link(story, dest)
-    puts "dest: '#{dest}'"
-    puts "expanded dest: '#{File.expand_path(dest)}'"
     FileUtils.mkdir_p File.expand_path(dest)
-    FileUtils.ln_s File.expand_path(story.file), File.join(dest, sanitize(story.name))
+    src = Pathname.new(File.expand_path(story.file))
+    FileUtils.ln_s src.relative_path_from(Pathname.new(File.expand_path(dest))), File.join(dest, sanitize(story.name))
   end
 end
