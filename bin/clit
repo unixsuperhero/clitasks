@@ -9,7 +9,7 @@ when 'create'
   id = String(name.hash).tr('0-9-','asdfghjklui')
 
   IO.write("./stories/index/#{id}.rb", <<-STORY)
-story '#{name}' do
+story %q(#{name}) do
   id '#{id}'
   status queued
   points 1
