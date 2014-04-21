@@ -35,8 +35,8 @@ else
     CliTasks::Runner.run 'examples/*'
   end
   puts
-  puts sprintf(" %-20s | %-6s | %-40s | %-10s", :id, :points, :name, :status)
-  puts sprintf(" %-20s | %6s | %-40s | %-10s", ?-*20, ?-*6, ?-*40, ?-*10)
-  puts stories.map{|story| sprintf(" %-20s | %-6s | %-40s | %-10s", story.id, ?* * story.points.to_i, story.name, story.status) }
+  puts sprintf(" %-20s | %-6s | %-60s | %-10s", :id, :points, :name, :status)
+  puts sprintf(" %-20s | %6s | %-60s | %-10s", ?-*20, ?-*6, ?-*60, ?-*10)
+  puts stories.map{|story| sprintf(" %-20s | %-6s | %-60s | %-10s", story.id, ?* * story.points.to_i, story.name, story.status) }
 end
 
