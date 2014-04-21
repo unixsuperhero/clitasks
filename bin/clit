@@ -3,7 +3,19 @@
 require './lib/story'
 require './lib/runner'
 
-CliTasks::Runner.run
-
-pp stories
+case ARGV[0] && ARGV[0].strip
+when 'create'
+  name = ARGV[1]
+  id = String(name.hash).tr('0-9-','asdfghjklui')
+  pp({id: id,
+			name: name,
+			length: id.length})
+when 'start'
+when 'finish'
+when 'tag'
+when 'comment'
+else
+  CliTasks::Runner.run
+  puts stories.map{|story| sprintf(" %-8s %3s %-40s %-10s %-s", story.hash.abs.to_s.slice(0,8), story.points, story.name, story.status, story.id) }
+end
 
