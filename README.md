@@ -1,29 +1,15 @@
 
 # CliTasks (clit)
 
-Clit is a (C)ommand-(L)ine (I)nterface (T)ask Manager for Projects
+clit is a Command-Line Interface Task/project manager
 
 It is being developed with the following goals in mind:
 
-* allow developers to view and manage tasks without leaving their terminal
-* decentralized
+* allow developers to view and manage tasks without breaking their workflow (leaving their terminal)
+* decentralized - but can sync with a centralized master
     * similar to how local-copies of git repos float around
-    * the list of "stories", who is working on what, and the status can follow the codebase and all sync with any _master_ branch
-* clean document format
-
-# Plans
-
-* REPL-style interactive console for viewing/updating stories
-* Some intuitive story navigator, list by type, open in vim, etc.
-* Shell integration
-  * create new stories
-  * change their status
-  * git integration (not sure if i like this)
-    * starting a story could create a feature branch
-    * finishing it, merge into master
-* Vim integration
-  * change a story's status, etc.
-  * who knows?
+    * the list of "stories", who is working on what, and the status can follow the codebase or sync with a master repo
+* clean document format - which is why I chose a custom Ruby DSL
 
 # Show that it works
 
@@ -56,3 +42,27 @@ It is being developed with the following goals in mind:
         When will this be done?
       COMMENT
     end
+
+# Future Plans
+
+* REPL-style interactive console for viewing/updating stories
+* Some intuitive story navigator, list by type, open in vim, etc.
+* Web-interface/hosting for non-developers
+* Shell integration
+  * create new stories (clit create 'change the title on the homepage')
+  * change their status (clit start a2c45a)
+  * git/workflow integration (probably shouldn't be in the clit-core)
+    * starting a story could create a feature branch
+    * finishing it, merge into master
+* Main stories/ directory with every story in it
+  * rebuildable directory tree using symlinks
+    * assigned/josh/\*
+    * tag/homepage/\*
+    * tag/other/\*
+    * status/finished/\*
+* Vim integration
+  * commands/mappings to:
+    * change a story's status, etc.
+    * create a comment
+  * netrw-style story navigation/organization
+  * who knows?
