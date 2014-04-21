@@ -7,9 +7,23 @@ case ARGV[0] && ARGV[0].strip
 when 'create'
   name = ARGV[1]
   id = String(name.hash).tr('0-9-','asdfghjklui')
-  pp({id: id,
-			name: name,
-			length: id.length})
+
+  IO.write("./stories/index/#{id}.rb", <<-STORY)
+story '#{name}' do
+  id '#{id}'
+  status queued
+  points 1
+  # created_by :unassigned
+  # assigned_to :unassigned
+  # tags :one, :two
+  #
+  # description <<-DESCRIPTION
+  # DESCRIPTION
+  #
+  # comment :username, <<-COMMENT
+  # COMMEND
+end
+  STORY
 when 'start'
 when 'finish'
 when 'tag'
@@ -21,8 +35,8 @@ else
     CliTasks::Runner.run 'examples/*'
   end
   puts
-  puts sprintf(" %-8s | %-6s | %-40s | %-10s", :id, :points, :name, :status)
-  puts sprintf(" %-8s | %6s | %-40s | %-10s", ?-*8, ?-*6, ?-*40, ?-*10)
-  puts stories.map{|story| sprintf(" %-8s | %-6s | %-40s | %-10s", story.id, ?* * story.points, story.name, story.status) }
+  puts sprintf(" %-20s | %-6s | %-40s | %-10s", :id, :points, :name, :status)
+  puts sprintf(" %-20s | %6s | %-40s | %-10s", ?-*20, ?-*6, ?-*40, ?-*10)
+  puts stories.map{|story| sprintf(" %-20s | %-6s | %-40s | %-10s", story.id, ?* * story.points.to_i, story.name, story.status) }
 end
 
