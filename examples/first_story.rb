@@ -1,5 +1,4 @@
 story 'name goes here' do
-  id 1
   status queued
   points 2
 

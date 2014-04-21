@@ -13,7 +13,7 @@ It is being developed with the following goals in mind:
 
 # Show that it works
 
-    ./bin/clit
+    ./bin/clit examples
 
 # Example Story File:
 

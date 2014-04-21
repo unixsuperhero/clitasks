@@ -15,7 +15,10 @@ when 'finish'
 when 'tag'
 when 'comment'
 else
-  CliTasks::Runner.run
-  puts stories.map{|story| sprintf(" %-8s %3s %-40s %-10s %-s", story.hash.abs.to_s.slice(0,8), story.points, story.name, story.status, story.id) }
+  CliTasks::Runner.run ARGV[0] || 'examples/*'
+  puts
+  puts sprintf(" %-8s | %-6s | %-40s | %-10s", :id, :points, :name, :status)
+  puts sprintf(" %-8s | %6s | %-40s | %-10s", ?-*8, ?-*6, ?-*40, ?-*10)
+  puts stories.map{|story| sprintf(" %-8s | %-6s | %-40s | %-10s", story.id, ?* * story.points, story.name, story.status) }
 end
 

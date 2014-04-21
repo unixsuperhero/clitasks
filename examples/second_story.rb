@@ -1,5 +1,4 @@
 story 'This is the second story' do
-  id 2
   status started
   points 6
   created_by :josh

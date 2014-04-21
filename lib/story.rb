@@ -7,6 +7,10 @@ module CliTasks
       builder.instance_variables.each{|name| instance_variable_set name, builder.instance_variable_get(name) }
     end
 
+    def id
+      @id ||= String(name.hash).tr('0-9-', 'asdfghjklui').slice(0,8)
+    end
+
     def self.build(name, &block)
       Story.new StoryReader.new(name, &block)
     end
