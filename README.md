@@ -53,7 +53,7 @@ It is being developed with the following goals in mind:
   * change their status (clit start a2c45a)
   * git/workflow integration (probably shouldn't be in the clit-core)
     * starting a story could create a feature branch
-    * finishing it, merge into master
+    * finishing it, merge into master? --don't like this
 * Main stories/ directory with every story in it
   * rebuildable directory tree using symlinks
     * assigned/josh/\*
