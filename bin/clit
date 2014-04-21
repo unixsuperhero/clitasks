@@ -32,7 +32,7 @@ else
   if ARGV.any?
     CliTasks::Runner.run *ARGV
   else
-    CliTasks::Runner.run 'examples/*'
+    CliTasks::Runner.run 'stories/index/*'
   end
   puts
   puts sprintf(" %-20s | %-6s | %-60s | %-10s", :id, :points, :name, :status)
