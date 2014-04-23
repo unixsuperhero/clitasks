@@ -1,14 +1,12 @@
 story 'package this as a gem' do
-  id 'fguuduhglfukjhuljss'
   status queued
-  points 1
-  # created_by :unassigned
-  # assigned_to :unassigned
-  # tags :one, :two
-  #
-  # description <<-DESCRIPTION
-  # DESCRIPTION
-  #
-  # comment :username, <<-COMMENT
-  # COMMEND
+  points 4
+  created_by :unixsuperhero
+  assigned_to :unixsuperhero
+  tags :gem, :setup, :configuration
+
+  description <<-DESCRIPTION
+   * read doc/write-your-own-gemspec.pdf
+       * this will help when setting up the gem properly
+  DESCRIPTION
 end
