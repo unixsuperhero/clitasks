@@ -4,7 +4,7 @@ story 'create symlink builder using story name as filename' do
   created_by :unixsuperhero
   assigned_to :unixsuperhero
 
-  tags *%w(cmd command rebulid JOSH TEST THREEEEEE)
+  tags *%w(cmd command rebulid)
 
   description <<-DESCRIPTION
     create the first version of the story filesystem structure builder
