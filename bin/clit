@@ -48,13 +48,13 @@ else
     CliTasks::Runner.run 'stories/index/*'
   end
   puts
-  puts sprintf(" %-20s | %-6s | %-60s | %-10s", :id, :points, :name, :status)
+  puts sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", :status, :id, :points, :name, :tags)
   #puts sprintf(" %-20s | %6s | %-60s | %-10s", ?-*20, ?-*6, ?-*60, ?-*10)
   puts stories.sort_by{|s| s.name }.inject({}){|hash,s|
     hash.merge( s.status => hash.fetch(s.status, []) << s )
   }.map{|status,group|
-    [sprintf(" %-20s | %6s | %-60s | %-10s", ?-*20, ?-*6, ?-*60, ?-*10)] + group.map{|story|
-      sprintf(" %-20s | %-6s | %-60s | %-10s", story.id, ?* * story.points.to_i, story.name.slice(0,60), story.status)
+    [sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", ?-*10, ?-*20, ?-*6, ?-*60, ?-*20)] + group.map{|story|
+      sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", story.status, story.id, ?* * story.points.to_i, story.name.slice(0,60), Array(story.tags).join(', '))
     }
   }
 end
