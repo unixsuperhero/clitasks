@@ -18,7 +18,7 @@ story %q(#{name}) do
   points 1
   created_by :unassigned
   assigned_to :unassigned
-  tags :example
+  tags *%w() # *%w(example example_two)
 
   description <<-DESCRIPTION
   DESCRIPTION

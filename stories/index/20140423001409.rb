@@ -1,5 +1,5 @@
 story %q(use %w() as the default tags argument or *%w()) do
-  status started
+  status finished
   points 1
   created_by :unixsuperhero
   assigned_to :unassigned
