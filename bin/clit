@@ -7,11 +7,14 @@ require './lib/link_builder'
 case ARGV[0] && ARGV[0].strip
 when 'create'
   name = ARGV[1]
-  id = String(name.hash).tr('0-9-','asdfghjklui')
+  timestamp = Time.now.strftime('%Y%m%d%H%M%S')
+  filename = "./stories/index/#{timestamp}.rb"
 
-  IO.write("./stories/index/#{id}.rb", <<-STORY)
+  print "Creating '#{filename}'..."
+
+  IO.write(filename, <<-STORY)
 story %q(#{name}) do
-  id '#{id}'
+  id '#{timestamp}'
   status queued
   points 1
   # created_by :unassigned
@@ -25,7 +28,12 @@ story %q(#{name}) do
   # COMMEND
 end
   STORY
-when 'start'
+
+  puts 'done'
+
+  puts "Opening '#{filename}'..."
+  exec(ENV['EDITOR'] || 'vim', filename)
+
 when 'rebuild'
   LinkBuilder.all
 when 'finish'
