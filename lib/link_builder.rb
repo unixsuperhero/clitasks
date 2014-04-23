@@ -25,7 +25,7 @@ class LinkBuilder
     world.stories.each do |story|
       story.tags.each do |tag|
         tag = sanitize(tag) || next
-        dest = File.join(@path, :tags, tag)
+        dest = File.join(@path, 'tags', tag)
         link story, dest
       end
     end

@@ -14,18 +14,17 @@ when 'create'
 
   IO.write(filename, <<-STORY)
 story %q(#{name}) do
-  id '#{timestamp}'
   status queued
   points 1
-  # created_by :unassigned
-  # assigned_to :unassigned
-  # tags :one, :two
-  #
-  # description <<-DESCRIPTION
-  # DESCRIPTION
-  #
-  # comment :username, <<-COMMENT
-  # COMMEND
+  created_by :unassigned
+  assigned_to :unassigned
+  tags :example
+
+  description <<-DESCRIPTION
+  DESCRIPTION
+
+  comment :author, <<-COMMENT
+  COMMENT
 end
   STORY
 
@@ -36,6 +35,8 @@ end
 
 when 'rebuild'
   LinkBuilder.all
+
+when 'start'
 when 'finish'
 when 'tag'
 when 'comment'

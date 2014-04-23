@@ -9,7 +9,7 @@ module CliTasks
     end
 
     def id
-      @id ||= String(name.hash).tr('0-9-', 'asdfghjklui').slice(0,8)
+      @id ||= File.basename(file).sub(/[.]rb$/, '')
     end
 
     def tags
