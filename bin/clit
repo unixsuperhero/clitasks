@@ -4,58 +4,22 @@ require 'pp'
 require './lib/story'
 require './lib/runner'
 require './lib/link_builder'
+require './lib/commands'
 
-case ARGV[0] && ARGV[0].strip
+command = ARGV.shift
+
+case command
 when 'create'
-  name = ARGV[1]
-  timestamp = Time.now.strftime('%Y%m%d%H%M%S')
-  filename = "./stories/index/#{timestamp}.rb"
-
-  print "Creating '#{filename}'..."
-
-  IO.write(filename, <<-STORY)
-story %q(#{name}) do
-  status queued
-  points 1
-  created_by :unassigned
-  assigned_to :unassigned
-  tags *%w() # *%w(example example_two)
-
-  description <<-DESCRIPTION
-  DESCRIPTION
-
-  comment :author, <<-COMMENT
-  COMMENT
-end
-  STORY
-
-  puts 'done'
-
-  puts "Opening '#{filename}'..."
-  exec(ENV['EDITOR'] || 'vim', filename)
-
+  CliTasks::Commands.create *ARGV
 when 'rebuild'
-  LinkBuilder.all
-
+  CliTasks::Commands.rebuild
 when 'start'
 when 'finish'
 when 'tag'
 when 'comment'
+when 'list'
+  CliTasks::Commands.list *ARGV
 else
-  if ARGV.any?
-    CliTasks::Runner.run *ARGV
-  else
-    CliTasks::Runner.run 'stories/index/*'
-  end
-  puts
-  puts sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", :status, :id, :points, :name, :tags)
-  #puts sprintf(" %-20s | %6s | %-60s | %-10s", ?-*20, ?-*6, ?-*60, ?-*10)
-  puts stories.sort_by{|s| s.name }.inject({}){|hash,s|
-    hash.merge( s.status => hash.fetch(s.status, []) << s )
-  }.map{|status,group|
-    [sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", ?-*10, ?-*20, ?-*6, ?-*60, ?-*20)] + group.map{|story|
-      sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", story.status, story.id, ?* * story.points.to_i, story.name.slice(0,60), Array(story.tags).join(', '))
-    }
-  }
+  CliTasks::Commands.list *ARGV
 end
 
