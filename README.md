@@ -1,7 +1,7 @@
 
-# CliTasks (clit)
+# CliTasks
 
-clit is a Command-Line Interface Task/project manager
+CliTasks is a Command-Line Task/Project Manager
 
 It is being developed with the following goals in mind:
 
@@ -13,7 +13,7 @@ It is being developed with the following goals in mind:
 
 # Show that it works
 
-    ./bin/clit examples
+    ./bin/task examples
 
 # Example Story File:
 
@@ -49,9 +49,9 @@ It is being developed with the following goals in mind:
 * Some intuitive story navigator, list by type, open in vim, etc.
 * Web-interface/hosting for non-developers
 * Shell integration
-  * create new stories (clit create 'change the title on the homepage')
-  * change their status (clit start a2c45a)
-  * git/workflow integration (probably shouldn't be in the clit-core)
+  * create new stories (task create 'change the title on the homepage')
+  * change their status (task start a2c45a)
+  * git/workflow integration (probably shouldn't be in the task-core)
     * starting a story could create a feature branch
     * finishing it, merge into master? --don't like this
 * Main stories/ directory with every story in it
