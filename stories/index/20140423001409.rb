@@ -1,9 +1,9 @@
 story %q(use %w() as the default tags argument or *%w()) do
-  status queued
+  status started
   points 1
   created_by :unixsuperhero
   assigned_to :unassigned
-  tags *%w()
+  tags *%w(tags)
 
   description <<-DESCRIPTION
     I like this more than than symbols or strings separated by commas.
