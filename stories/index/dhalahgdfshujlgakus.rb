@@ -1,6 +1,6 @@
 story %q("clit create <name>" opens the new story in ${EDITOR:-vim}) do
   id 'dhalahgdfshujlgakus'
-  status started
+  status finished
   points 1
   created_by :unixsuperhero
   assigned_to :unixsuperhero
