@@ -1,19 +1,18 @@
 module CliTasks
   class Commands
     class << self
+      def checklog(msg, &block)
+        print "#{msg}..."
+        block.call
+        puts 'done'
+      end
       def create(*args)
         name = args.join ' '
         timestamp = Time.now.strftime('%Y%m%d%H%M%S')
         filename = "./stories/index/#{timestamp}.rb"
 
-        print "Creating '#{filename}'..."
-
-        IO.write(filename, template(name))
-
-        puts 'done'
-
-        puts "Opening '#{filename}'..."
-        exec(ENV['EDITOR'] || 'vim', filename)
+        checklog("Creating '#{filename}'"){ IO.write(filename, template(name)) }
+        checklog("Opening '#{filename}'"){ system(ENV['EDITOR'] || 'vim', filename) }
       end
 
       def rebuild
@@ -59,9 +58,7 @@ module CliTasks
             COMMENT
           end
         STORY
-        pattern = data.scan(/\A(\s+)/).uniq.min_by{|s| s.length }.tap{|s|
-          pp({ patterns: s })
-        }.first
+        pattern = data.scan(/\A(\s+)/).uniq.min_by{|s| s.length }.first
         data.gsub(/^#{pattern}/, '')
       end
     end

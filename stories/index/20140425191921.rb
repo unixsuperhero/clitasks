@@ -1,5 +1,5 @@
 story %q(task create title rebuilds symlinks at the end) do
-  status started
+  status finished
   points 1
   created_by :unixsuperhero
   assigned_to :unixsuperhero

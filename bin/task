@@ -11,6 +11,7 @@ command = ARGV.shift
 case command
 when 'create'
   CliTasks::Commands.create *ARGV
+  CliTasks::Commands.rebuild
 when 'rebuild'
   CliTasks::Commands.rebuild
 when 'start'
