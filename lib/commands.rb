@@ -2,7 +2,7 @@ module CliTasks
   class Commands
     class << self
       def create(*args)
-        name = args[0]
+        name = args.join ' '
         timestamp = Time.now.strftime('%Y%m%d%H%M%S')
         filename = "./stories/index/#{timestamp}.rb"
 

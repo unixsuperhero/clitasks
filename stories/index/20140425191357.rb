@@ -1,5 +1,5 @@
 story %q("task create <title>" does not require title to be a single argument (in quotes)) do
-  status started
+  status finished
   points 1
   created_by :unixsuperhero
   assigned_to :unixsuperhero
