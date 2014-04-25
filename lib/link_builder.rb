@@ -13,6 +13,7 @@ class LinkBuilder
 
   def self.all
     LinkBuilder.new.tap do |links|
+      links.remove_all_symlinks
       links.by_tag
       links.by_status
       links.by_creator
@@ -20,44 +21,45 @@ class LinkBuilder
     end
   end
 
+  def remove_all_symlinks
+    Dir[ [@path, '**/*'].join(?/) ].each do |file|
+      next unless File.symlink?(file)
+      FileUtils.rm(file)
+    end
+  end
+
+  def create_link(type, dir, story)
+    dir = sanitize(dir) || return
+    dest = File.join(@path, type, dir)
+    link story, dest
+  end
+
   def by_tag
-    FileUtils.rm_r(File.join(@path, 'tags'), force: true)
     world.stories.each do |story|
       story.tags.each do |tag|
-        tag = sanitize(tag) || next
-        dest = File.join(@path, 'tags', tag)
-        link story, dest
+        create_link('tags', tag, story)
       end
     end
   end
 
   def by_status
-    FileUtils.rm_r(File.join(@path, 'status'), force: true)
     world.stories.each do |story|
-      status = sanitize(story.status)
-      dest = File.join(@path, 'status', status)
-      link story, dest
+      create_link('status', story, story.status)
     end
   end
 
   def by_creator
-    FileUtils.rm_r(File.join(@path, 'created_by'), force: true)
     world.stories.each do |story|
       Array(story.created_by).each do |creator|
-        creator = sanitize(creator) || next
-        dest = File.join(@path, 'created_by', creator)
-        link story, dest
+        create_link('created_by', creator, story)
       end
     end
   end
 
   def by_assignment
-    FileUtils.rm_r(File.join(@path, 'assigned_to'), force: true)
     world.stories.each do |story|
       Array(story.assigned_to).each do |assignment|
-        assignment = sanitize(assignment) || next
-        dest = File.join(@path, 'assigned_to', assignment)
-        link story, dest
+        create_link('assigned_to', assignment, story)
       end
     end
   end

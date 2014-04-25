@@ -1,5 +1,5 @@
 story %q(safety: do not FileUtils.rm_r the dirs with the symlinks...only .rm the symlinks) do
-  status queued
+  status finished
   points 1
   created_by :unixsuperhero
   assigned_to :unassigned
