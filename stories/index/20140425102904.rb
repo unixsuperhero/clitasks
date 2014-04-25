@@ -1,5 +1,5 @@
 story %q(bug: fix title not being interpolated in new stories) do
-  status queued
+  status finished
   points 1
   created_by :unixsuperhero
   assigned_to :unassigned

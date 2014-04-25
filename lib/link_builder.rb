@@ -44,7 +44,7 @@ class LinkBuilder
 
   def by_status
     world.stories.each do |story|
-      create_link('status', story, story.status)
+      create_link('status', story.status, story)
     end
   end
 
@@ -68,7 +68,7 @@ class LinkBuilder
 
   def sanitize(name)
     return unless name.is_a?(String) || name.is_a?(Symbol)
-    String(name).gsub(/\W+/, '_')
+    String(name).gsub(/(\W|_)+/, '_')
   end
 
   def link(story, dest)
