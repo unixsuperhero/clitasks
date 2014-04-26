@@ -2,13 +2,18 @@ module CliTasks
   class Commands
     class << self
       def edit(*args)
-        files = args.inject(['stories/index']){|files,arg|
-          pp     "git grep -Eil '#{arg}' -- #{files.join ' '}"
-          grep = `git grep -Eil '#{arg}' -- #{files.join ' '}`
-          lines = grep.lines.map(&:chomp)
-        }
+        files = grep(*args)
         system(ENV['EDITOR'] || 'vim', *files)
       end
+
+      def search(*args)
+        if (args[0] || '').strip =~ /-(s|-simple)/i
+          puts grep(*args.tap(&:shift))
+        else
+          CliTasks::Viewer.print(*grep(*args))
+        end
+      end
+
       def create(*args)
         name = args.join ' '
         timestamp = Time.now.strftime('%Y%m%d%H%M%S')
@@ -28,22 +33,21 @@ module CliTasks
 
       def list(*args)
         if args.any?
-          CliTasks::Runner.run *args
+          CliTasks::Viewer.print *args
         else
-          CliTasks::Runner.run 'stories/index/*'
+          CliTasks::Viewer.print 'stories/index/*'
         end
-        puts
-        puts sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", :status, :id, :points, :name, :tags)
-        puts stories.sort_by{|s| s.name }.inject({}){|hash,s|
-          hash.merge( s.status => hash.fetch(s.status, []) << s )
-        }.map{|status,group|
-          [sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", ?-*10, ?-*20, ?-*6, ?-*60, ?-*20)] + group.map{|story|
-            sprintf(" %-10s | %-20s | %-6s | %-60s | %-s", story.status, story.id, ?* * story.points.to_i, story.name.slice(0,60), Array(story.tags).join(', '))
-          }
-        }
       end
 
       private
+
+      def grep(*args)
+        args.inject(['stories/index']){|files,arg|
+          #pp     "grep -ril '#{arg}' -- '#{files.join "' '"}'"
+          grep = `grep -ril '#{arg}' -- '#{files.join "' '"}'`
+          lines = grep.lines.map(&:chomp)
+        }
+      end
 
       def checklog(msg, &block)
         print "#{msg}..."

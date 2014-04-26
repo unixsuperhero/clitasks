@@ -1,7 +1,5 @@
 require 'fileutils'
 require 'pathname'
-require './lib/runner'
-require './lib/world'
 
 class LinkBuilder
   attr_reader :world

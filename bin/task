@@ -1,9 +1,11 @@
 #!/usr/bin/env ruby
 
 require 'pp'
+require './lib/world'
 require './lib/story'
 require './lib/runner'
 require './lib/link_builder'
+require './lib/viewer'
 require './lib/commands'
 
 command = ARGV.shift
@@ -17,6 +19,9 @@ when 'create'
 when 'edit'
   CliTasks::Commands.edit *ARGV
   CliTasks::Commands.rebuild
+when 'search'
+  CliTasks::Commands.search *ARGV
+  CliTasks::Commands.rebuild
 when 'start'
 when 'finish'
 when 'tag'
@@ -24,6 +29,6 @@ when 'comment'
 when 'list'
   CliTasks::Commands.list *ARGV
 else
-  CliTasks::Commands.list *ARGV
+  CliTasks::Commands.list *ARGV.unshift(command)
 end
 
