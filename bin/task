@@ -1,12 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'pp'
-require './lib/world'
-require './lib/story'
-require './lib/runner'
-require './lib/link_builder'
-require './lib/viewer'
-require './lib/commands'
+require './lib/clitasks'
 
 command = ARGV.shift
 
