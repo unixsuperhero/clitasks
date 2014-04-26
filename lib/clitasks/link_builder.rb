@@ -6,12 +6,12 @@ module CliTasks
     attr_reader :world
     def initialize(path='stories')
       @path = path
-      @world = CliTasks::World.instance
-      CliTasks::Runner.run [path, 'index'].join(?/)
+      @world = World.instance
+      Runner.run [path, 'index'].join(?/)
     end
 
     def self.all
-      CliTasks::LinkBuilder.new.tap do |links|
+      LinkBuilder.new.tap do |links|
         links.remove_all_symlinks
         links.by_tag
         links.by_status

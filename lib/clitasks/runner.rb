@@ -11,7 +11,7 @@ module CliTasks
     end
 
     def self.world
-      @world ||= CliTasks::World.instance
+      @world ||= World.instance
     end
   end
 end

@@ -10,7 +10,7 @@ module CliTasks
         if (args[0] || '').strip =~ /-(s|-simple)/i
           puts grep(*args.tap(&:shift))
         else
-          CliTasks::Viewer.print(*grep(*args))
+          Viewer.print(*grep(*args))
         end
       end
 
@@ -24,18 +24,18 @@ module CliTasks
       end
 
       def rebuild
-        CliTasks::LinkBuilder.all
+        LinkBuilder.all
       end
 
       def stories
-        @stories ||= CliTasks::World.instance.stories
+        @stories ||= World.instance.stories
       end
 
       def list(*args)
         if args.any?
-          CliTasks::Viewer.print *args
+          Viewer.print *args
         else
-          CliTasks::Viewer.print 'stories/index/*'
+          Viewer.print 'stories/index/*'
         end
       end
 

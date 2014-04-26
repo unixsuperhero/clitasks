@@ -1,8 +1,8 @@
 story %q(lib/'s structure should match namespaces; one file should load the whole env (see: any gem)) do
-  status started
+  status finished
   points 1
   created_by :unixsuperhero
-  assigned_to :unassigned
+  assigned_to :unixsuperhero
   tags *%w(gem setup refactor)
 
   description <<-DESCRIPTION

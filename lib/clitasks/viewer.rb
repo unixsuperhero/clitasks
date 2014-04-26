@@ -3,9 +3,9 @@ module CliTasks
     def initialize(*args)
       @files = args
       if args.any?
-        CliTasks::Runner.run *args
+        Runner.run *args
       else
-        CliTasks::Runner.run 'stories/index/*'
+        Runner.run 'stories/index/*'
       end
     end
 
@@ -36,7 +36,7 @@ module CliTasks
     end
 
     def stories
-      @stories ||= CliTasks::World.instance.stories
+      @stories ||= World.instance.stories
     end
   end
 end
