@@ -24,7 +24,7 @@ module CliTasks
       end
 
       def rebuild
-        LinkBuilder.all
+        CliTasks::LinkBuilder.all
       end
 
       def stories
