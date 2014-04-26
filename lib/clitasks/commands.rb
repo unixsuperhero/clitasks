@@ -19,6 +19,7 @@ module CliTasks
         timestamp = Time.now.strftime('%Y%m%d%H%M%S')
         filename = "./stories/index/#{timestamp}.rb"
 
+        FileUtils.mkdir_p("./stories/index")
         checklog("Creating '#{filename}'"){ IO.write(filename, template(name)) }
         checklog("Opening '#{filename}'"){ system(ENV['EDITOR'] || 'vim', filename) }
       end

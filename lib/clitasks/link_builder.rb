@@ -1,6 +1,3 @@
-require 'fileutils'
-require 'pathname'
-
 module CliTasks
   class LinkBuilder
     attr_reader :world

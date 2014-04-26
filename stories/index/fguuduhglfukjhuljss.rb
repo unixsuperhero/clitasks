@@ -1,5 +1,5 @@
 story 'package this as a gem' do
-  status started
+  status finished
   points 4
   created_by :unixsuperhero
   assigned_to :unixsuperhero

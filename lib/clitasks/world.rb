@@ -1,5 +1,3 @@
-require 'singleton'
-
 module CliTasks
   class World
     include Singleton

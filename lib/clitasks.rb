@@ -1,11 +1,16 @@
-require './lib/clitasks/world'
-require './lib/clitasks/simple_dsl'
-require './lib/clitasks/story_reader'
-require './lib/clitasks/story'
-require './lib/clitasks/runner'
-require './lib/clitasks/link_builder'
-require './lib/clitasks/viewer'
-require './lib/clitasks/commands'
+require 'fileutils'
+require 'pathname'
+require 'pp'
+require 'singleton'
+
+require 'clitasks/world'
+require 'clitasks/simple_dsl'
+require 'clitasks/story_reader'
+require 'clitasks/story'
+require 'clitasks/runner'
+require 'clitasks/link_builder'
+require 'clitasks/viewer'
+require 'clitasks/commands'
 
 module CliTasks
 end

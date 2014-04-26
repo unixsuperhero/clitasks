@@ -1,5 +1,3 @@
-require 'pp'
-
 module CliTasks
   class Story
     attr_accessor :file
