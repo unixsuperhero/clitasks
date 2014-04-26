@@ -1,5 +1,5 @@
 story %q(separate lib/story.rb into one file per class) do
-  status queued
+  status started
   points 2
   created_by :unixsuperhero
   assigned_to :unassigned

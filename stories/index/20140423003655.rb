@@ -1,5 +1,5 @@
 story %q(lib/'s structure should match namespaces; one file should load the whole env (see: any gem)) do
-  status queued
+  status started
   points 1
   created_by :unixsuperhero
   assigned_to :unassigned
