@@ -11,14 +11,19 @@ It is being developed with the following goals in mind:
     * the list of "stories", who is working on what, and the status can follow the codebase or sync with a master repo
 * clean document format - which is why I chose a custom Ruby DSL
 
-# Show that it works
+# Usage
 
-    ./bin/task                                                   # List stories saved in ./stories
-    ./bin/task create 'update title tag on homepage to say Foo'  # Create a new story with the title 'update ... Foo'
-    ./bin/task create update title tag on homepage to say Foo    # Quotes are optional if shell-safe characters are used
-    ./bin/task edit 'queued' 'update.title'                      # Open stories matching all the regexps given
-    ./bin/task edit queued update.title                          # Quotes are optional if shell-safe characters are used
-    ./bin/task rebuild                                           # Rebuild the symlinks used for accessing stories via (tag|status|creator|owner)/story_name
+    export PATH="./bin:$PATH"
+
+    task [list]                                            # List stories saved in ./stories (the "list" is optional)
+
+    task create 'update title tag on homepage to say Foo'  # Create a new story with the title 'update ... Foo'
+    task create update title tag on homepage to say Foo    # Quotes are optional if shell-safe characters are used
+
+    task edit 'queued' 'update.title'                      # Open stories matching all the regexps given
+    task edit queued update.title                          # Quotes are optional if shell-safe characters are used
+
+    task rebuild                                           # Rebuild the symlinks used for accessing stories via (tag|status|creator|owner)/story_name
 
 # Example Story File:
 
