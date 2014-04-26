@@ -13,7 +13,12 @@ It is being developed with the following goals in mind:
 
 # Show that it works
 
-    ./bin/task examples
+    ./bin/task                                                   # List stories saved in ./stories
+    ./bin/task create 'update title tag on homepage to say Foo'  # Create a new story with the title 'update ... Foo'
+    ./bin/task create update title tag on homepage to say Foo    # Quotes are optional if shell-safe characters are used
+    ./bin/task edit 'queued' 'update.title'                      # Open stories matching all the regexps given
+    ./bin/task edit queued update.title                          # Quotes are optional if shell-safe characters are used
+    ./bin/task rebuild                                           # Rebuild the symlinks used for accessing stories via (tag|status|creator|owner)/story_name
 
 # Example Story File:
 
