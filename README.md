@@ -24,6 +24,10 @@ It is being developed with the following goals in mind:
     task edit 'queued' 'update.title'                      # Open stories matching all the regexps given
     task edit queued update.title                          # Quotes are optional if shell-safe characters are used
 
+    task search queued 'update.title'                      # List stories matching regexps, quotes optional
+    task search -s queued update.title                     # List only the filenames of stories matching the regexps
+    task search --simple queued update.title               # List only the filenames of stories matching the regexps
+
     task rebuild                                           # Rebuild the symlinks used for accessing stories via (tag|status|creator|owner)/story_name
 
 # Example Story File:
