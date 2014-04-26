@@ -1,5 +1,5 @@
 story %q(clit edit <name|id> will search the ids/names and open the matches in ${EDITOR:-vim}) do
-  status queued
+  status finished
   points 3
   created_by :unixsuperhero
   assigned_to :unassigned

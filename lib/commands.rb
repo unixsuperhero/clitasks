@@ -1,10 +1,13 @@
 module CliTasks
   class Commands
     class << self
-      def checklog(msg, &block)
-        print "#{msg}..."
-        block.call
-        puts 'done'
+      def edit(*args)
+        files = args.inject(['stories/index']){|files,arg|
+          pp     "git grep -Eil '#{arg}' -- #{files.join ' '}"
+          grep = `git grep -Eil '#{arg}' -- #{files.join ' '}`
+          lines = grep.lines.map(&:chomp)
+        }
+        system(ENV['EDITOR'] || 'vim', *files)
       end
       def create(*args)
         name = args.join ' '
@@ -41,6 +44,12 @@ module CliTasks
       end
 
       private
+
+      def checklog(msg, &block)
+        print "#{msg}..."
+        block.call
+        puts 'done'
+      end
 
       def template(name)
         data = <<-STORY
