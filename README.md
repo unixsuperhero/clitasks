@@ -15,7 +15,8 @@ It is being developed with the following goals in mind:
 
     export PATH="./bin:$PATH"
 
-    task [list]                                            # List stories saved in ./stories (the "list" is optional)
+    task                                                   # List stories saved in ./stories
+    task list                                              # List stories saved in ./stories (the "list" is optional)
 
     task create 'update title tag on homepage to say Foo'  # Create a new story with the title 'update ... Foo'
     task create update title tag on homepage to say Foo    # Quotes are optional if shell-safe characters are used
