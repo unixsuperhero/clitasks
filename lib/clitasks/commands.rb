@@ -28,8 +28,12 @@ module CliTasks
         LinkBuilder.all
       end
 
+      def world
+        @world ||= World.instance
+      end
+
       def stories
-        @stories ||= World.instance.stories
+        @stories ||= world.stories
       end
 
       def list(*args)
@@ -61,15 +65,11 @@ module CliTasks
           story %q(#{name}) do
             status queued
             points 1
-            created_by :unassigned
+            created_by '#{world.configuration.created_by || 'unassigned'}'
             assigned_to :unassigned
             tags *%w() # *%w(example example_two)
 
-            description <<-DESCRIPTION
-            DESCRIPTION
-
-            comment :author, <<-COMMENT
-            COMMENT
+            description %q()
           end
         STORY
         pattern = data.scan(/\A(\s+)/).uniq.min_by{|s| s.length }.first

@@ -16,7 +16,7 @@ module CliTasks
     def print
       puts header
 
-      puts stories.inject({}){|hash,s|
+      puts stories.reverse.inject({}){|hash,s|
         hash.merge( s.status => hash.fetch(s.status, []) << s )
       }.map{|status,group|
         [separator] + group.map{|s| story(s) }

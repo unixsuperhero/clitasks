@@ -11,6 +11,7 @@ Gem::Specification.new do |s|
   s.files = [
     'lib/clitasks.rb',
     'lib/clitasks/commands.rb',
+    'lib/clitasks/configuration.rb',
     'lib/clitasks/link_builder.rb',
     'lib/clitasks/runner.rb',
     'lib/clitasks/simple_dsl.rb',

@@ -3,6 +3,10 @@ module CliTasks
     include Singleton
     attr_writer :stories
 
+    def configuration
+      @configuration ||= Configuration.instance.tap(&:load)
+    end
+
     def reset
       @stories = []
     end
