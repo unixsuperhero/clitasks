@@ -16,7 +16,7 @@ module CliTasks
     def print
       puts header
 
-      puts stories.sort_by{|s| s.name }.inject({}){|hash,s|
+      puts stories.inject({}){|hash,s|
         hash.merge( s.status => hash.fetch(s.status, []) << s )
       }.map{|status,group|
         [separator] + group.map{|s| story(s) }
