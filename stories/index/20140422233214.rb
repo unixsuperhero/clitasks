@@ -1,5 +1,5 @@
 story %q(create a (yml?) config file loader) do
-  status queued
+  status finished
   points 3
   created_by :unixsuperhero
   assigned_to :unassigned

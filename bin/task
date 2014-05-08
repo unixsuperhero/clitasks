@@ -15,7 +15,11 @@ when 'edit'
   CliTasks::Commands.edit *ARGV
   CliTasks::Commands.rebuild
 when 'search'
-  CliTasks::Commands.search *ARGV
+  if ARGV.any?{|arg| arg == '-e' }
+    CliTasks::Commands.edit *ARGV.reject{|arg| arg == '-e' }
+  else
+    CliTasks::Commands.search *ARGV
+  end
   CliTasks::Commands.rebuild
 when 'start'
 when 'finish'
