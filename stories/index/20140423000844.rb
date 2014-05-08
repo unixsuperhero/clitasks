@@ -1,5 +1,5 @@
 story %q(strip [_[^[:word:]]+ from the beginning and end of symlink names) do
-  status queued
+  status started
   points 1
   created_by :unixsuperhero
   assigned_to :unassigned
