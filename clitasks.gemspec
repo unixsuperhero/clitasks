@@ -8,12 +8,8 @@ Gem::Specification.new do |s|
   s.date = '2014-04-26'
   s.authors = ['Joshua "unixsuperhero" Toyota']
   s.email = 'jearsh@gmail.com'
-  s.files = Dir['lib/**/*'] + Dir['test/**/*_test.rb'] + [
-    'bin/task',
-    'Rakefile',
-  ]
   s.files = Dir['**/*'].reject{|f|
-    /^(doc|stories|tmp)/.match(f)
+    /^(doc|stories|tmp)|^clitasks.*[.]gem$/.match(f)
   }.keep_if{|f|
     File.file?(f)
   }
