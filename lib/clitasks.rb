@@ -1,10 +1,8 @@
 require 'fileutils'
 require 'pathname'
-require 'pp'
 require 'singleton'
 require 'yaml'
 
-require 'clitasks/string_ext'
 require 'clitasks/configuration'
 require 'clitasks/world'
 require 'clitasks/simple_dsl'
