@@ -1,5 +1,5 @@
 story %q(task version shows the gems current version) do
-  status started
+  status finished
   points 1
   created_by 'unixsuperhero'
   assigned_to :unassigned

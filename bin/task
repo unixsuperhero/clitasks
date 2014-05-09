@@ -6,6 +6,8 @@ require 'clitasks'
 command = ARGV.shift
 
 case command
+when 'version'
+  puts CliTasks::VERSION
 when 'rebuild'
   CliTasks::Commands.rebuild
 when 'create'

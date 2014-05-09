@@ -13,6 +13,7 @@ require 'clitasks/story'
 require 'clitasks/runner'
 require 'clitasks/link_builder'
 require 'clitasks/viewer'
+require 'clitasks/version'
 require 'clitasks/commands'
 
 module CliTasks
