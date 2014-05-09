@@ -2,6 +2,8 @@ require 'fileutils'
 require 'pathname'
 require 'singleton'
 require 'yaml'
+require 'active_support'
+require 'active_support/core_ext'
 
 require 'clitasks/configuration'
 require 'clitasks/world'

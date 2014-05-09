@@ -12,7 +12,16 @@ Gem::Specification.new do |s|
     'bin/task',
     'Rakefile',
   ]
+  s.files = Dir['**/*'].reject{|f|
+    /^(doc|stories|tmp)/.match(f)
+  }.keep_if{|f|
+    File.file?(f)
+  }
   s.executables = ['task']
   s.homepage = 'http://github.com/unixsuperhero/clitasks'
   s.license = 'MIT'
+
+  a.add_runtime_dependency 'activesupport'
+  a.add_development_dependency 'rake'
+  a.add_development_dependency 'minitest'
 end
