@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.homepage = 'http://github.com/unixsuperhero/clitasks'
   s.license = 'MIT'
 
-  a.add_runtime_dependency 'activesupport'
-  a.add_development_dependency 'rake'
-  a.add_development_dependency 'minitest'
+  s.add_runtime_dependency 'activesupport'
+  s.add_development_dependency 'rake'
+  s.add_development_dependency 'minitest'
 end
