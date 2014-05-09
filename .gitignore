@@ -1,3 +1,4 @@
+tmp/
 stories/*
 !stories/index
 !stories/config.yml
