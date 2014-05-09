@@ -64,7 +64,7 @@ module CliTasks
 
     def sanitize(name)
       return unless name.is_a?(String) || name.is_a?(Symbol)
-      String(name).gsub(/(\W|_)+/, '_')
+      String(name).gsub(/(\W|_)+/, '_').sub(/^_*/, '').sub(/_*$/, '')
     end
 
     def link(story, dest)
