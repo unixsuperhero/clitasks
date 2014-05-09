@@ -13,7 +13,7 @@ class String
     gsub(/\W+/, ' ')
   end
 
-  def pathify
+  def filenameify
     downcase.underscore.strip_chr(?_)
   end
 end

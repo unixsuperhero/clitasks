@@ -19,21 +19,21 @@ describe 'New methods added to String class' do
       sample.sanitize.must_equal 'Hello World This Is a ing test'
     end
   end
-  describe '#pathify' do
+  describe '#filenameify' do
     it 'should downcase the string' do
-      sample.pathify.match(/[A-Z]/).must_equal nil
+      sample.filenameify.match(/[A-Z]/).must_equal nil
     end
     it 'should convert consecutive \W into a single underscore' do
-      sample.pathify.match(/\W/).must_equal nil
-      sample.pathify.match(/\W\W+/).must_equal nil
-      sample.pathify[/_/].must_equal '_'
+      sample.filenameify.match(/\W/).must_equal nil
+      sample.filenameify.match(/\W\W+/).must_equal nil
+      sample.filenameify[/_/].must_equal '_'
     end
     it 'should remove any leading or trailing underscores' do
-      '_has leading and trailing underscores_'.pathify.match(/^_/).must_equal nil
-      '_has leading and trailing underscores_'.pathify.match(/_$/).must_equal nil
+      '_has leading and trailing underscores_'.filenameify.match(/^_/).must_equal nil
+      '_has leading and trailing underscores_'.filenameify.match(/_$/).must_equal nil
     end
     it 'should return an exceptable filename' do
-      sample.pathify.must_equal 'hello_world_this_is_a_ing_test'
+      sample.filenameify.must_equal 'hello_world_this_is_a_ing_test'
     end
   end
 end
