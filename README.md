@@ -66,6 +66,7 @@ It is being developed with the following goals in mind:
 * REPL-style interactive console for viewing/updating stories
 * Some intuitive story navigator, list by type, open in vim, etc.
 * Web-interface/hosting for non-developers
+* Plugins for integrating with Jira, Pivotal Tracker, Github's issues/tickets, etc.
 * Shell integration
   * create new stories (task create 'change the title on the homepage')
   * change their status (task start a2c45a)
