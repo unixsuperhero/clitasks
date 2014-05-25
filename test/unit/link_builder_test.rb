@@ -1,5 +1,4 @@
-require 'minitest/autorun'
-require './lib/clitasks'
+require './test/test_helper'
 
 describe CliTasks::LinkBuilder do
   describe '#link' do

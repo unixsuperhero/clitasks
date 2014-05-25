@@ -3,7 +3,9 @@ module CliTasks
     attr_accessor :file
     attr_reader :id, :status, :points, :name, :description
     def initialize(builder)
-      builder.instance_variables.each{|name| instance_variable_set name, builder.instance_variable_get(name) }
+      builder.instance_variables.each{|name|
+        instance_variable_set name, builder.instance_variable_get(name)
+      }
     end
 
     def id
