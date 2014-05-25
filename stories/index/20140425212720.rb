@@ -1,5 +1,5 @@
 story %q(WRITE TESTS ASSHOLE) do
-  status queued
+  status started
   points 1
   created_by :unixsuperhero
   assigned_to :unassigned
