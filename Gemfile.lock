@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    clitasks (0.0.7)
+    clitasks (0.0.8)
       activesupport (~> 4.0)
 
 GEM
