@@ -1,6 +1,5 @@
-story %q(use percent notation for story names - instead of escaping quotes) do
-  id 'igdljhahadkjugfakhah'
-  status finished
+story %q(refactor LinkBuilder#link) do
+  status queued
   points 1
   # created_by :unassigned
   # assigned_to :unassigned

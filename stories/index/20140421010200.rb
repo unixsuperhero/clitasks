@@ -1,5 +1,4 @@
 story %q(paused status - for started, but unmerged stories) do
-  id 'ighfglhkldsksldkjjfh'
   status queued
   points 1
   # created_by :unassigned
