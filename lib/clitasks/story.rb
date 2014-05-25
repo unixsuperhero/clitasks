@@ -9,7 +9,7 @@ module CliTasks
     end
 
     def id
-      @id ||= File.basename(file).sub(/[.]rb$/, '')
+      @id ||= File.basename(file, '.rb')
     end
 
     def tags

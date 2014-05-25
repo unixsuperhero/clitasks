@@ -1,5 +1,5 @@
 story %q(change how a story's id is retrieved) do
-  status started
+  status finished
   points 1
   created_by 'unixsuperhero'
   assigned_to :unassigned
